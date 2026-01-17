@@ -4,151 +4,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title></title>
+
 <style>
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
   background: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
   color: #111;
 }
-a { text-decoration: none; color: inherit; }
-.container { max-width: 600px; margin: auto; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+}
 
 /* 一覧 */
-.news-list { background: #fff; }
 .news-item {
-  display: flex;
-  gap: 12px;
-  padding: 12px;
+  padding: 14px;
   border-bottom: 1px solid #e5e5e5;
 }
-.news-item:last-child { border-bottom: none; }
-.thumb {
-  width: 96px; height: 72px;
-  background: #ddd;
-  border-radius: 4px;
-  flex-shrink: 0;
+
+.news-item:last-child {
+  border-bottom: none;
 }
-.content {}
-.title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-.meta { font-size: 12px; color: #777; }
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #777;
+}
 
 /* 詳細 */
-.detail-page { padding: 16px; background: #fff; display: none; }
-.detail-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
-.detail-body { font-size: 15px; line-height: 1.6; margin-bottom: 16px; }
-.back-btn {
+.detail {
+  display: none;
+  padding: 16px;
+}
+
+.back {
   font-size: 14px;
   color: #2563eb;
   margin-bottom: 12px;
   display: inline-block;
 }
+
+.detail-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.detail-body {
+  font-size: 15px;
+  line-height: 1.7;
+}
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-  <!-- ニュース一覧 -->
-  <div id="list" class="news-list">
+  <!-- 一覧 -->
+  <div id="list">
 
-    <a class="news-item" href="#"
-       onclick="showDetail('d1')">
-      <div class="thumb"></div>
-      <div class="content">
-        <div class="title">日伊首脳 経済安全保障協力を強化一致</div>
-        <div class="meta">国際ニュース</div>
-      </div>
-    </a>
+    <div class="news-item" onclick="openDetail('n1')">
+      <div class="title">日米首脳会談 経済安全保障で連携強化へ</div>
+      <div class="meta">国際</div>
+    </div>
 
-    <a class="news-item" href="#"
-       onclick="showDetail('d2')">
-      <div class="thumb"></div>
-      <div class="content">
-        <div class="title">トランプ政権1年目 半数が「失敗」評価</div>
-        <div class="meta">国際政治</div>
-      </div>
-    </a>
+    <div class="news-item" onclick="openDetail('n2')">
+      <div class="title">米FRB 利下げ時期を慎重に判断との見方</div>
+      <div class="meta">経済</div>
+    </div>
 
-    <a class="news-item" href="#"
-       onclick="showDetail('d3')">
-      <div class="thumb"></div>
-      <div class="content">
-        <div class="title">米市場：テック株が反発し株価安定</div>
-        <div class="meta">経済ニュース</div>
-      </div>
-    </a>
+    <div class="news-item" onclick="openDetail('n3')">
+      <div class="title">生成AIの利用拡大 企業の対応分かれる</div>
+      <div class="meta">IT</div>
+    </div>
 
-    <a class="news-item" href="#"
-       onclick="showDetail('d4')">
-      <div class="thumb"></div>
-      <div class="content">
-        <div class="title">不動産市場の選別、次の段階へ</div>
-        <div class="meta">社会ニュース</div>
-      </div>
-    </a>
+    <div class="news-item" onclick="openDetail('n4')">
+      <div class="title">国内観光需要 回復基調が続く</div>
+      <div class="meta">社会</div>
+    </div>
+
+    <div class="news-item" onclick="openDetail('n5')">
+      <div class="title">中東情勢 緊張長期化への懸念強まる</div>
+      <div class="meta">国際</div>
+    </div>
 
   </div>
 
-  <!-- 詳細ページテンプレ -->
-  <div id="d1" class="detail-page">
-    <a class="back-btn" href="#" onclick="backToList()">← 一覧に戻る</a>
-    <div class="detail-title">日伊首脳 経済安全保障協力を強化一致</div>
+  <!-- 詳細 -->
+  <div id="n1" class="detail">
+    <span class="back" onclick="back()">← 戻る</span>
+    <div class="detail-title">日米首脳会談 経済安全保障で連携強化へ</div>
     <div class="detail-body">
-      高市総理はイタリアのメローニ首相と会談し、
-      サプライチェーンや宇宙分野での協力強化に合意した。  
-      これは経済安全保障の枠組みを拡大する重要な一歩となる。  
-      出典: NHKニュース おはよう日本（TVでた蔵） 0
+      日米両首脳は会談を行い、半導体や重要資源の供給網を中心に
+      経済安全保障分野での協力を一段と強化する方針を確認した。
+      今後は民間企業との連携も含めた枠組みづくりが進められる見通し。
     </div>
   </div>
 
-  <div id="d2" class="detail-page">
-    <a class="back-btn" href="#" onclick="backToList()">← 一覧に戻る</a>
-    <div class="detail-title">トランプ政権1年目 半数が「失敗」評価</div>
+  <div id="n2" class="detail">
+    <span class="back" onclick="back()">← 戻る</span>
+    <div class="detail-title">米FRB 利下げ時期を慎重に判断との見方</div>
     <div class="detail-body">
-      トランプ大統領の1年目を評価するCNNの調査では、
-      半数以上が経済政策に否定的な見方をしている。  
-      とくに物価高対策について「不十分」と答えた割合が高い。  
-      出典: テレビ朝日ニュース 1
+      米国の金融政策を巡り、FRBはインフレ動向を見極めながら
+      利下げのタイミングを慎重に判断するとの見方が広がっている。
+      市場では早期利下げへの期待と警戒感が交錯している。
     </div>
   </div>
 
-  <div id="d3" class="detail-page">
-    <a class="back-btn" href="#" onclick="backToList()">← 一覧に戻る</a>
-    <div class="detail-title">米市場：テック株が反発し株価安定</div>
+  <div id="n3" class="detail">
+    <span class="back" onclick="back()">← 戻る</span>
+    <div class="detail-title">生成AIの利用拡大 企業の対応分かれる</div>
     <div class="detail-body">
-      米国株式市場では大型テクノロジー株が反発し、
-      S&P500指数が安定した動きを見せた。  
-      一方、原油価格が大きく下落したことも市場心理に影響している。  
-      出典: Times of India（AP通信） 2
+      生成AIの活用が急速に進む中、業務効率化を進める企業がある一方で、
+      情報管理や著作権への懸念から導入に慎重な姿勢を示す企業もある。
     </div>
   </div>
 
-  <div id="d4" class="detail-page">
-    <a class="back-btn" href="#" onclick="backToList()">← 一覧に戻る</a>
-    <div class="detail-title">不動産市場の選別、次の段階へ</div>
+  <div id="n4" class="detail">
+    <span class="back" onclick="back()">← 戻る</span>
+    <div class="detail-title">国内観光需要 回復基調が続く</div>
     <div class="detail-body">
-      不動産価格や取引の「選別」が進み、
-      市場は新たなフェーズに入っているとの分析が出ている。  
-      出典: ライブドアニュース 3
+      国内旅行の需要は引き続き回復傾向にあり、
+      地方都市でも宿泊予約が増加している。
+      観光業界では人手不足への対応が課題となっている。
+    </div>
+  </div>
+
+  <div id="n5" class="detail">
+    <span class="back" onclick="back()">← 戻る</span>
+    <div class="detail-title">中東情勢 緊張長期化への懸念強まる</div>
+    <div class="detail-body">
+      中東地域では緊張状態が続いており、
+      国際社会では事態の長期化を懸念する声が強まっている。
+      各国は外交的解決を模索している。
     </div>
   </div>
 
 </div>
 
-
 <script>
-// 詳細表示
-function showDetail(id) {
+function openDetail(id) {
   document.getElementById("list").style.display = "none";
+  document.querySelectorAll(".detail").forEach(d => d.style.display = "none");
   document.getElementById(id).style.display = "block";
 }
-// 一覧に戻る
-function backToList() {
+
+function back() {
   document.getElementById("list").style.display = "block";
-  document.querySelectorAll('.detail-page').forEach(div =>{
-    div.style.display = "none";
-  });
+  document.querySelectorAll(".detail").forEach(d => d.style.display = "none");
 }
 </script>
 
