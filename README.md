@@ -3,140 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIニュース</title>
+
+<title></title>
 
 <style>
-:root {
-  --bg: #f4f6f8;
-  --card: #ffffff;
-  --text: #111;
-  --sub: #666;
-  --accent: #2563eb;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --text: #e5e7eb;
-    --sub: #9ca3af;
-  }
-}
-
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  background: var(--bg);
-  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: #f5f5f5;
+  color: #111;
 }
 
-header {
-  padding: 16px;
-  background: var(--card);
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
-  position: sticky;
-  top: 0;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.container {
-  padding: 16px;
-  max-width: 700px;
+/* ニュース一覧 */
+.news-list {
+  max-width: 600px;
   margin: auto;
+  background: #fff;
 }
 
-.news-card {
-  background: var(--card);
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+/* 1記事 */
+.news-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.news-card h2 {
-  font-size: 17px;
-  margin: 0 0 8px;
+.news-item:last-child {
+  border-bottom: none;
 }
 
-.tag {
-  display: inline-block;
-  font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: white;
-  margin-bottom: 8px;
+/* サムネ */
+.thumb {
+  width: 96px;
+  height: 72px;
+  background: #ddd;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
-.summary {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text);
+/* テキスト */
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
 }
 
 .meta {
   font-size: 12px;
-  color: var(--sub);
-  margin-top: 10px;
+  color: #777;
 }
 
-a.source {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 13px;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  color: var(--sub);
-  padding: 24px 0;
+.tag {
+  color: #2563eb;
+  margin-right: 6px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🧠 AIニュース</h1>
-</header>
+<div class="news-list">
 
-<div class="container">
-
-  <div class="news-card">
-    <div class="tag">国際</div>
-    <h2>各国が米国との貿易戦略を再調整</h2>
-    <p class="summary">
-      米国の通商政策を背景に、各国が外交・貿易戦略の見直しを進めている。
-      特にアジア・欧州諸国では経済的自立を強める動きが注目されている。
-    </p>
-    <a class="source" href="#" target="_blank">元記事を見る</a>
-    <div class="meta">AI要約・自動生成</div>
+  <div class="news-item">
+    <div class="thumb"></div>
+    <div class="content">
+      <div class="title">
+        各国が米国の通商政策を受け戦略見直しへ
+      </div>
+      <div class="meta">
+        <span class="tag">国際</span>
+        AI要約・1時間前
+      </div>
+    </div>
   </div>
 
-  <div class="news-card">
-    <div class="tag">テクノロジー</div>
-    <h2>大手クラウドサービスで一時障害</h2>
-    <p class="summary">
-      世界的なクラウドサービスで短時間の障害が発生し、
-      多数のウェブサービスに影響が出た。
-      企業側は再発防止策を公表している。
-    </p>
-    <a class="source" href="#" target="_blank">元記事を見る</a>
-    <div class="meta">AI要約・自動生成</div>
+  <div class="news-item">
+    <div class="thumb"></div>
+    <div class="content">
+      <div class="title">
+        大手クラウドサービスで一時的な障害発生
+      </div>
+      <div class="meta">
+        <span class="tag">IT</span>
+        AI要約・3時間前
+      </div>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="thumb"></div>
+    <div class="content">
+      <div class="title">
+        観光業界で国内旅行需要が回復傾向に
+      </div>
+      <div class="meta">
+        <span class="tag">経済</span>
+        AI要約・昨日
+      </div>
+    </div>
   </div>
 
 </div>
-
-<footer>
-  本サイトはAIが公開情報を要約しています
-</footer>
 
 </body>
 </html>
