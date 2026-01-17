@@ -1,61 +1,142 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIニュースまとめ</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 16px; }
-    h1 { text-align: center; }
-    .article { border-bottom: 1px solid #ccc; margin-bottom: 16px; padding-bottom: 12px; }
-    .title { font-size: 18px; font-weight: bold; }
-    .summary { margin-top: 8px; }
-    .source { font-size: 12px; color: #555; margin-top: 6px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIニュース</title>
+
+<style>
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #111;
+  --sub: #666;
+  --accent: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #e5e7eb;
+    --sub: #9ca3af;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 16px;
+  background: var(--card);
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.container {
+  padding: 16px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.news-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+.news-card h2 {
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  margin-bottom: 8px;
+}
+
+.summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--sub);
+  margin-top: 10px;
+}
+
+a.source {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--sub);
+  padding: 24px 0;
+}
+</style>
 </head>
+
 <body>
 
-  <h1>AIニュースまとめ</h1>
+<header>
+  <h1>🧠 AIニュース</h1>
+</header>
 
-  <div class="article">
-    <div class="title">カナダと中国が関係修復へ</div>
-    <div class="summary">
-      カナダ首相と中国国家主席が北京で会談し、米国との貿易摩擦を背景に外交関係を強化する方針を打ち出した。貿易額拡大にも意欲を示している。  
-    </div>
-    <div class="source">出典: Financial Times（国際ニュース・政治） 0</div>
+<div class="container">
+
+  <div class="news-card">
+    <div class="tag">国際</div>
+    <h2>各国が米国との貿易戦略を再調整</h2>
+    <p class="summary">
+      米国の通商政策を背景に、各国が外交・貿易戦略の見直しを進めている。
+      特にアジア・欧州諸国では経済的自立を強める動きが注目されている。
+    </p>
+    <a class="source" href="#" target="_blank">元記事を見る</a>
+    <div class="meta">AI要約・自動生成</div>
   </div>
 
-  <div class="article">
-    <div class="title">Cloudflare、大規模障害を謝罪</div>
-    <div class="summary">
-      クラウドサービス大手のCloudflareが約25分間の大規模障害を起こし、LinkedInやZoomなど複数サイトに影響。CTOが再発防止を約束した。  
-    </div>
-    <div class="source">出典: The Guardian（テクノロジー） 1</div>
+  <div class="news-card">
+    <div class="tag">テクノロジー</div>
+    <h2>大手クラウドサービスで一時障害</h2>
+    <p class="summary">
+      世界的なクラウドサービスで短時間の障害が発生し、
+      多数のウェブサービスに影響が出た。
+      企業側は再発防止策を公表している。
+    </p>
+    <a class="source" href="#" target="_blank">元記事を見る</a>
+    <div class="meta">AI要約・自動生成</div>
   </div>
 
-  <div class="article">
-    <div class="title">米トランプ大統領の新外交戦略</div>
-    <div class="summary">
-      トランプ大統領が「米国優先」の新戦略を示し、従来の世界的介入を抑え、自国重視の外交政策を推進すると宣言。  
-    </div>
-    <div class="source">出典: The Australian（国際政治） 2</div>
-  </div>
+</div>
 
-  <div class="article">
-    <div class="title">2026年旅行トレンド：相撲観戦やホテルホッピング人気</div>
-    <div class="summary">
-      2026年の旅行トレンドとして、日本の相撲観戦やロケ地めぐり旅行が若い世代を中心に人気となっているという調査結果が出た。  
-    </div>
-    <div class="source">出典: トラベルボイス（観光ニュース） 3</div>
-  </div>
-
-  <div class="article">
-    <div class="title">世界情勢の複雑化を分析した特集号発売</div>
-    <div class="summary">
-      2026年に注目の世界キーパーソンや戦争、AI・米中関係などを分析した総力特集号が発売され、中東戦争やウクライナ戦争など多方面の論点を扱っている。  
-    </div>
-    <div class="source">出典: ニューズウィーク日本版（国際分析） 4</div>
-  </div>
+<footer>
+  本サイトはAIが公開情報を要約しています
+</footer>
 
 </body>
 </html>
